@@ -1,6 +1,6 @@
 plugins {
-    id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
-    id 'io.github.ladysnake.chenille' version "${chenille_version}"
+    id 'fabric-loom' version '1.5-SNAPSHOT'
+    id 'maven-publish'
 }
 
 version = project.mod_version
@@ -10,38 +10,31 @@ base {
     archivesName = project.archives_base_name
 }
 
-chenille {
-    customLicense = rootProject.file("LICENSE")
-    github = new URL("https://github.com/MoriyaShiine/enchancement")
-    javaVersion = 21
-    configurePublishing {
-        withLadysnakeMaven()
-        withGithubRelease()
-        withModrinthRelease()
-        withCurseforgeRelease()
-    }
-}
-
 loom {
     accessWidenerPath = file("src/main/resources/enchancement.accesswidener")
 }
 
-fabricApi {
-    configureDataGeneration() {
-        client = true
-    }
-}
-
 repositories {
-    chenille.repositories.ladysnake()
-    chenille.repositories.up()
-    chenille.repositories.terraformers()
-    chenille.repositories.modrinth()
     maven {
-        name "appleskin"
-        url "https://maven.ryanliptak.com/"
+        name "cardinal components"
+        url "https://maven.ladysnake.org/releases"
     }
-    chenille.repositories.jitpack()
+    maven {
+        name "architectury"
+        url "https://maven.shedaniel.me"
+    }
+    maven {
+        name "mod menu"
+        url "https://maven.terraformersmc.com"
+    }
+    maven {
+        name "modrinth"
+        url "https://api.modrinth.com/maven"
+    }
+    maven {
+        name "jitpack"
+        url "https://jitpack.io"
+    }
 }
 
 dependencies {
@@ -49,23 +42,25 @@ dependencies {
     mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${loader_version}"
 
-    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${cardinal_components_version}"
-    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${cardinal_components_version}"
-    modIncludeImplementation "org.ladysnake.cardinal-components-api:cardinal-components-block:${cardinal_components_version}"
-    modIncludeImplementation "org.ladysnake.cardinal-components-api:cardinal-components-world:${cardinal_components_version}"
-    modIncludeImplementation "maven.modrinth:midnightlib:${midnightlib_version}"
+    include modApi("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cardinal_components_version}")
+    include modApi("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cardinal_components_version}")
+    include modApi("dev.onyxstudios.cardinal-components-api:cardinal-components-world:${cardinal_components_version}")
+    include modApi("maven.modrinth:midnightlib:${midnightlib_version}")
+    include modApi("com.github.emilyploszaj:step-height-entity-attribute:${step_height_entity_attribute_version}")
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    modImplementation "moriyashiine:strawberrylib:${strawberrylib_version}"
+    modRuntimeOnly "maven.modrinth:tooltipfix:${tooltipfix_version}"
 
-//    modCompileOnly "io.github.apace100:apoli:${apoli_version}"
-    modCompileOnly("squeek.appleskin:appleskin-fabric:${appleskin_version}") {
-        transitive = false
+    modCompileOnly("com.github.apace100:apoli:${apoli_version}") {
+        exclude(group: "*")
     }
-    modLocalImplementation "maven.modrinth:sodium:${sodium_version}"
-    modCompileOnly "maven.modrinth:iris:${iris_version}"
+    modCompileOnly "maven.modrinth:architectury-api:${architectury_version}+fabric"
+    modCompileOnly "maven.modrinth:sodium:${sodium_version}"
+    modRuntimeOnly "maven.modrinth:sodium:${sodium_version}"
+    implementation "org.joml:joml:1.10.4"
+    modCompileOnly "maven.modrinth:spectrum:${spectrum_version}"
 
-    modLocalRuntime "com.terraformersmc:modmenu:${mod_menu_version}"
+    modRuntimeOnly "com.terraformersmc:modmenu:${mod_menu_version}"
 }
 
 processResources {
@@ -77,18 +72,18 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 21
+    it.options.release = 17
 }
 
 java {
     withSourcesJar()
 
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
     from("LICENSE") {
-        rename { "${it}_${project.base.archivesName.get()}" }
+        rename { "${it}_${project.archivesBaseName}" }
     }
 }
