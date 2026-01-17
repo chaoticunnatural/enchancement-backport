@@ -42,6 +42,31 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import moriyashiine.enchancement.api.event.MultiplyMovementSpeedEvent;
+import moriyashiine.enchancement.common.event.*;
+import moriyashiine.enchancement.common.init.ModEnchantments;
+import moriyashiine.enchancement.common.init.ModEntityTypes;
+import moriyashiine.enchancement.common.init.ModScreenHandlerTypes;
+import moriyashiine.enchancement.common.init.ModSoundEvents;
+import moriyashiine.enchancement.common.util.EnchancementUtil;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
+import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.resource.ResourceType;
+import net.minecraft.util.Identifier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Enchancement implements ModInitializer {
 	public static final String MOD_ID = "enchancement";
 
@@ -53,13 +78,12 @@ public class Enchancement implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		SLib.init(MOD_ID);
 		initRegistries();
 		initEvents();
 		initPayloads();
-		ResourceLoader.get(ResourceType.SERVER_DATA).registerReloader(EnchantingMaterialReloadListener.ID, new EnchantingMaterialReloadListener());
-		ResourceLoader.get(ResourceType.SERVER_DATA).registerReloader(HeadDropsReloadListener.ID, new HeadDropsReloadListener());
-		ResourceLoader.get(ResourceType.SERVER_DATA).registerReloader(MineOreVeinsBaseBlockReloadListener.ID, new MineOreVeinsBaseBlockReloadListener());
+		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(EnchantingMaterialReloadListener.ID, new EnchantingMaterialReloadListener());
+		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(HeadDropsReloadListener.ID, new HeadDropsReloadListener());
+		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(MineOreVeinsBaseBlockReloadListener.ID, new MineOreVeinsBaseBlockReloadListener());
 		isLoaded = true;
 		isApoliLoaded = FabricLoader.getInstance().isModLoaded("apoli");
 		for (String mod : new String[]{"enchdesc", "enchantedtooltips", "idwtialsimmoedm"}) {

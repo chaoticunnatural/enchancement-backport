@@ -7,6 +7,7 @@ import moriyashiine.enchancement.common.Enchancement;
 import moriyashiine.enchancement.common.enchantment.effect.RageEffect;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class RageClientEvent implements ItemTooltipCallback {
 	@Override
-	public void getTooltip(ItemStack stack, Item.TooltipContext tooltipContext, TooltipType tooltipType, List<Text> lines) {
+	public void getTooltip(ItemStack stack, TooltipContext tooltipContext, List<Text> lines) {
 		PlayerEntity player = MinecraftClient.getInstance().player;
 		float speedMultiplier = 1 + RageEffect.getMovementSpeedModifier(player, stack);
 		float damageMultiplier = RageEffect.getDamageTakenModifier(player, stack);

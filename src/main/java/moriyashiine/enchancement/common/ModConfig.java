@@ -123,14 +123,6 @@ public class ModConfig extends MidnightConfig {
 		return encoding.hashCode();
 	}
 
-	@Override
-	public void writeChanges() {
-		super.writeChanges();
-		if (Enchancement.isLoaded) {
-			StoredEnchantmentsTooltipComponent.clearIconCache();
-		}
-	}
-
 	static {
 		// need to do this before mod init since I mixin into certain things before then
 		MidnightConfig.init(Enchancement.MOD_ID, ModConfig.class);
