@@ -3,9 +3,7 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.Component;
+import dev.onyxstudios.cca.api.v3.component.Component;
 
 public class SafeLightningComponent implements Component {
 	private boolean safe = false;

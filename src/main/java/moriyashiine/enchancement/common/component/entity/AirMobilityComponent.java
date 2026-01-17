@@ -3,6 +3,7 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
 import moriyashiine.enchancement.common.ModConfig;
 import moriyashiine.enchancement.common.init.ModComponentTypes;
 import moriyashiine.strawberrylib.api.module.SLibUtils;
@@ -11,9 +12,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.tick.CommonTickingComponent;
 
 public class AirMobilityComponent implements CommonTickingComponent {
 	private final LivingEntity obj;

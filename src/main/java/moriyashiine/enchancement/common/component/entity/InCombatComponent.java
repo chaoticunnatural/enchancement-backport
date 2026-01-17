@@ -3,9 +3,7 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.tick.ServerTickingComponent;
+import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 
 public class InCombatComponent implements ServerTickingComponent {
 	private int combatTicks = 0;

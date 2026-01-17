@@ -3,11 +3,9 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
+import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
-import org.ladysnake.cca.api.v3.component.tick.ServerTickingComponent;
 
 public class BounceComponent implements ServerTickingComponent, AutoSyncedComponent {
 	private final LivingEntity obj;

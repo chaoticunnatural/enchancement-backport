@@ -3,11 +3,10 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.Component;
 import moriyashiine.enchancement.common.enchantment.effect.ApplyRandomStatusEffectEffect;
 import moriyashiine.enchancement.common.init.ModEnchantmentEffectComponentTypes;
 import moriyashiine.enchancement.common.util.EnchancementUtil;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -20,12 +19,9 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.MathHelper;
 import org.apache.commons.lang3.mutable.MutableFloat;
 import org.jetbrains.annotations.Nullable;
-import org.ladysnake.cca.api.v3.component.Component;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;

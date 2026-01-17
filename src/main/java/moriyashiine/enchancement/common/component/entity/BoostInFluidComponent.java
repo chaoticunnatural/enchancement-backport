@@ -3,6 +3,8 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
+import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
 import moriyashiine.enchancement.common.init.ModEnchantmentEffectComponentTypes;
 import moriyashiine.enchancement.common.payload.BoostInFluidC2SPayload;
 import moriyashiine.enchancement.common.util.EnchancementUtil;
@@ -13,12 +15,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.event.GameEvent;
-import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
-import org.ladysnake.cca.api.v3.component.tick.CommonTickingComponent;
 
 public class BoostInFluidComponent implements AutoSyncedComponent, CommonTickingComponent {
 	private final LivingEntity obj;

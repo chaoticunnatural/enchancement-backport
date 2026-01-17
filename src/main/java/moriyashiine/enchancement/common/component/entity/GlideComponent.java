@@ -3,6 +3,8 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
+import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
 import moriyashiine.enchancement.common.enchantment.effect.GlideEffect;
 import moriyashiine.enchancement.common.payload.GlideC2SPayload;
 import moriyashiine.enchancement.common.util.EnchancementUtil;
@@ -11,10 +13,6 @@ import moriyashiine.strawberrylib.api.module.SLibUtils;
 import moriyashiine.strawberrylib.api.objects.enums.ParticleAnchor;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
-import org.ladysnake.cca.api.v3.component.tick.CommonTickingComponent;
 
 public class GlideComponent implements AutoSyncedComponent, CommonTickingComponent {
 	private final LivingEntity obj;

@@ -3,16 +3,12 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import moriyashiine.enchancement.common.init.ModEntityComponents;
-import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.particle.TintedParticleEffect;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
-import org.ladysnake.cca.api.v3.component.tick.CommonTickingComponent;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,15 +3,13 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import moriyashiine.enchancement.common.enchantment.effect.entity.BuryEffect;
 import moriyashiine.enchancement.common.init.ModEntityComponents;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
-import org.ladysnake.cca.api.v3.component.tick.ServerTickingComponent;
 
 public class BuryEntityComponent implements AutoSyncedComponent, ServerTickingComponent {
 	private final LivingEntity obj;

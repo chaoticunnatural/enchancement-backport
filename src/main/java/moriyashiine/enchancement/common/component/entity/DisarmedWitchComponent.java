@@ -3,11 +3,9 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.Component;
 import net.minecraft.potion.Potion;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.Component;
 
 import java.util.ArrayList;
 import java.util.List;

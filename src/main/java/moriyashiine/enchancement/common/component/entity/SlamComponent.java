@@ -3,6 +3,7 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
 import moriyashiine.enchancement.api.event.MultiplyMovementSpeedEvent;
 import moriyashiine.enchancement.client.EnchancementClient;
 import moriyashiine.enchancement.common.init.ModEnchantmentEffectComponentTypes;
@@ -24,11 +25,8 @@ import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.*;
 import net.minecraft.world.event.GameEvent;
-import org.ladysnake.cca.api.v3.component.tick.CommonTickingComponent;
 
 public class SlamComponent implements CommonTickingComponent {
 	public static final int DEFAULT_SLAM_COOLDOWN = 7;

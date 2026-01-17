@@ -3,6 +3,11 @@
  */
 package moriyashiine.enchancement.common.init;
 
+import dev.onyxstudios.cca.api.v3.component.ComponentKey;
+import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
+import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
+import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
+import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
 import moriyashiine.enchancement.common.Enchancement;
 import moriyashiine.enchancement.common.component.entity.*;
 import net.minecraft.entity.LightningEntity;
@@ -12,11 +17,6 @@ import net.minecraft.entity.mob.WitchEntity;
 import net.minecraft.entity.passive.SquidEntity;
 import net.minecraft.entity.passive.WanderingTraderEntity;
 import net.minecraft.entity.projectile.*;
-import org.ladysnake.cca.api.v3.component.ComponentKey;
-import org.ladysnake.cca.api.v3.component.ComponentRegistry;
-import org.ladysnake.cca.api.v3.entity.EntityComponentFactoryRegistry;
-import org.ladysnake.cca.api.v3.entity.EntityComponentInitializer;
-import org.ladysnake.cca.api.v3.entity.RespawnCopyStrategy;
 
 public class ModEntityComponents implements EntityComponentInitializer {
 	public static final ComponentKey<AirJumpComponent> AIR_JUMP = ComponentRegistry.getOrCreate(Enchancement.id("air_jump"), AirJumpComponent.class);

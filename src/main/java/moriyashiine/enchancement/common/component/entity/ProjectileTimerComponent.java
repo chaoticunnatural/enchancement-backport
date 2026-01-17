@@ -3,9 +3,7 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.tick.CommonTickingComponent;
+import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
 
 public class ProjectileTimerComponent implements CommonTickingComponent {
 	private int resetTicks = 0, timesHit = 0;

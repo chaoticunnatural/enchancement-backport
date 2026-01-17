@@ -3,9 +3,7 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 
 public class UsingMaceComponent implements AutoSyncedComponent {
 	private boolean using = false;

@@ -3,11 +3,9 @@
  */
 package moriyashiine.enchancement.common.component.entity;
 
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import moriyashiine.enchancement.common.init.ModEntityComponents;
 import net.minecraft.entity.mob.GuardianEntity;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
-import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 
 public class FrozenGuardianComponent implements AutoSyncedComponent {
 	private final GuardianEntity obj;
